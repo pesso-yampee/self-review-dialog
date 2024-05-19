@@ -7,9 +7,9 @@ const watchCreatePRButton = () => {
     createPRButton.addEventListener(
       "click",
       (event) => {
-        const selfReviewed = confirm("セルフレビューしましたか？");
+        const isSelfReviewed = confirm("セルフレビューしましたか？");
 
-        if (selfReviewed) {
+        if (isSelfReviewed) {
           event.stopImmediatePropagation();
         } else {
           event.stopImmediatePropagation();
