@@ -1,4 +1,4 @@
-# self-review-aleart
+# self-review-alert
 Create Pull Request ボタンを押した時にセルフレビューを行ったか確認するためのアラート機能を作成しています。
 
 ## 作成背景
