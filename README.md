@@ -1,4 +1,4 @@
-# self-review-reminder
+# self-review-dialog
 Create Pull Request ボタンを押した時にセルフレビューを行ったか確認するためのダイアログ機能を作成しています。
 
 ## 作成背景
