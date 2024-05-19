@@ -1,35 +1,29 @@
-window.addEventListener("load", () => {
+const watchCreatePRButton = () => {
   const createPRButton = document.querySelector(
     'button[type="submit"][data-hydro-click*="pull_request"]'
   );
+
   if (createPRButton) {
-    createPRButton.addEventListener("click", (event) => {
-      const isSelfReviewed = confirm("セルフレビューしましたか？");
+    createPRButton.addEventListener(
+      "click",
+      (event) => {
+        const selfReviewed = confirm("セルフレビューしましたか？");
 
-      if (!isSelfReviewed) {
-        event.preventDefault();
-      }
-    });
+        if (selfReviewed) {
+          event.stopImmediatePropagation();
+        } else {
+          event.stopImmediatePropagation();
+          event.preventDefault();
+        }
+      },
+      { once: true }
+    );
+  } else {
+    setTimeout(watchCreatePRButton, 100);
   }
-});
+};
 
-function watchCreatePRButton(createPRButton) {
-  if (createPRButton) {
-    createPRButton.addEventListener("click", function (event) {
-      const selfReviewed = confirm("セルフレビューしましたか？");
-
-      if (!selfReviewed) {
-        event.preventDefault();
-        return false;
-      }
-    });
-  }
-}
-
-const createPRButton = document.querySelector(
-  'button[type="submit"][data-hydro-click*="pull_request"]'
-);
-const observer = new MutationObserver(createPRButton);
+const observer = new MutationObserver(watchCreatePRButton);
 observer.observe(document.body, { childList: true, subtree: true });
 
-watchCreatePRButton(createPRButton);
+watchCreatePRButton();
