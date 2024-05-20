@@ -7,7 +7,7 @@ const watchCreatePRButton = () => {
     createPRButton.addEventListener(
       "click",
       (event) => {
-        const isSelfReviewed = confirm("セルフレビューしましたか？");
+        const isSelfReviewed = confirm("セルフレビューした？\n・色んな画面から操作してみた？\n・リファクタした？");
 
         if (isSelfReviewed) {
           event.stopImmediatePropagation();
