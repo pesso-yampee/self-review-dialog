@@ -7,8 +7,10 @@ const watchPullRequestButton = () => {
   );
 
   if (pullRequestButton) {
+    console.log('呼ばれてるよ');
     pullRequestButton.addEventListener("click", (event) => {
-      const isSelfReviewed = confirm(
+    console.log('ここにいるよ');
+    const isSelfReviewed = confirm(
         "セルフレビューした？\n・色んな画面から操作してみた？\n・リファクタした？"
       );
 
