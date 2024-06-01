@@ -3,14 +3,12 @@
  */
 const watchPullRequestButton = () => {
   const pullRequestButton = document.querySelector(
-    'button[type="submit"][data-hydro-click*="pull_request"]'
+    'button[data-hydro-click*="create_pull_request"]'
   );
 
   if (pullRequestButton) {
-    console.log('呼ばれてるよ');
     pullRequestButton.addEventListener("click", (event) => {
-    console.log('ここにいるよ');
-    const isSelfReviewed = confirm(
+      const isSelfReviewed = confirm(
         "セルフレビューした？\n・色んな画面から操作してみた？\n・リファクタした？"
       );
 
