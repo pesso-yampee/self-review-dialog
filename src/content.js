@@ -12,12 +12,7 @@ const watchPullRequestButton = () => {
         "セルフレビューした？\n・色んな画面から操作してみた？\n・リファクタした？"
       );
 
-      if (isSelfReviewed) {
-        event.stopImmediatePropagation();
-      } else {
-        event.stopImmediatePropagation();
-        event.preventDefault();
-      }
+      (isSelfReviewed || !isSelfReviewed) && event.stopImmediatePropagation();
     });
   } else {
     setTimeout(watchPullRequestButton, 100);
