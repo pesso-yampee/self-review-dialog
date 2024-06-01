@@ -1,29 +1,30 @@
-const watchCreatePRButton = () => {
-  const createPRButton = document.querySelector(
+/**
+ * Pull Requestボタンを監視する
+ */
+const watchPullRequestButton = () => {
+  const pullRequestButton = document.querySelector(
     'button[type="submit"][data-hydro-click*="pull_request"]'
   );
 
-  if (createPRButton) {
-    createPRButton.addEventListener(
-      "click",
-      (event) => {
-        const isSelfReviewed = confirm("セルフレビューしましたか？");
+  if (pullRequestButton) {
+    pullRequestButton.addEventListener("click", (event) => {
+      const isSelfReviewed = confirm(
+        "セルフレビューした？\n・色んな画面から操作してみた？\n・リファクタした？"
+      );
 
-        if (isSelfReviewed) {
-          event.stopImmediatePropagation();
-        } else {
-          event.stopImmediatePropagation();
-          event.preventDefault();
-        }
-      },
-      { once: true }
-    );
+      if (isSelfReviewed) {
+        event.stopImmediatePropagation();
+      } else {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+      }
+    });
   } else {
-    setTimeout(watchCreatePRButton, 100);
+    setTimeout(watchPullRequestButton, 100);
   }
 };
 
-const observer = new MutationObserver(watchCreatePRButton);
+const observer = new MutationObserver(watchPullRequestButton);
 observer.observe(document.body, { childList: true, subtree: true });
 
-watchCreatePRButton();
+watchPullRequestButton();
