@@ -3,7 +3,7 @@
  */
 const watchPullRequestButton = () => {
   const pullRequestButton = document.querySelector(
-    'button[type="submit"][data-hydro-click*="pull_request"]'
+    'button[data-hydro-click*="create_pull_request"]'
   );
 
   if (pullRequestButton) {
