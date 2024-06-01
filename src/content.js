@@ -12,6 +12,8 @@ const watchPullRequestButton = () => {
         "セルフレビューした？\n・色んな画面から操作してみた？\n・リファクタした？"
       );
 
+      console.log('AAA');
+
       if (isSelfReviewed) {
         event.stopImmediatePropagation();
       } else {
